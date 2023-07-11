@@ -42,15 +42,59 @@ body {
     font-weight: 700;
     line-height: 120%;
     margin-bottom: 24px;
+    border-right: 2px solid #fff;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.title-animation {
+    animation: title 700ms steps(40) infinite normal, typing 4s steps(40) infinite normal;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    } to {
+        width: 100%;
+    }
+}
+
+@keyframes title {
+    from {
+        border-right: 1px solid #fff;
+    }
+     to {
+        border-right: 1px solid transparent;
+    }
 }
 
 .paragraph {
     color: var(--gray-01, #D6D6F2);
     font-family: Outfit;
     font-size: 20px;
+    margin-bottom: 56px;
     font-weight: 300;
     line-height: 140%;
-    margin-bottom: 56px;
+}
+
+.paragraph-rgb {
+    animation: paragraph-rgb 1s infinite linear;
+}
+
+@keyframes paragraph-rgb {
+    0% {
+        color: var(--gray-01, #ff0000);
+    } 20% {
+        color: var(--gray-01, #ffc508);
+    } 40% {
+        color: var(--gray-01, #0cce1c);
+    } 60% {
+        color: var(--gray-01, #01ccff);
+    } 80% {
+        color: var(--gray-01, #8107f3);
+    } 100% {
+        color: var(--gray-01, #ff0296);
+}
 }
 
 .button {
@@ -69,8 +113,8 @@ body {
 .button:hover {
     transition: 0.5s;
     background: var(--blue-light, #212187);
-    box-shadow: -3px 4px #6f00ff52;
-    transform: translate(-1px 1px);
+    box-shadow: -4px 5px #6f00ff52;
+    transform: scale(1.05);
 }
 
 .error {
@@ -100,24 +144,32 @@ body {
 
   @keyframes tremor {
     0% { transform: translate(0, 0); }
-    5% { transform: translate(-50px, 50px); }
-    10% { transform: translate(45px, -45px); }
-    15% { transform: translate(-35px, -35px); }
-    20% { transform: translate(35px, 35px); }
-    25% { transform: translate(-40px, 40px); }
-    30% { transform: translate(45px, 45px); }
-    35% { transform: translate(-50px, 50px); }
-    40% { transform: translate(55px, 55px); }
-    45% { transform: translate(-55px, 50px); }
-    50% { transform: translate(0, 0); }
-    55% { transform: translate(-25px, 25px); }
-    60% { transform: translate(2px, -25px); }
-    65% { transform: translate(-95px, -25px); }
-    70% { transform: translate(275px, 25px); }
-    75% { transform: translate(-225px, 0); }
-    80% { transform: translate(25px, 0); }
-    85% { transform: translate(-15px, 0); }
-    90% { transform: translate(45px, 0); }
-    95% { transform: translate(-25px, 0); }
+    15% { transform: translate(-50px, 50px ); }
+    25% { transform: translate(45px, -45px ); }
+    35% { transform: translate(-35px, -35px ); }
+    40% { transform: translate(35px, 35px); }
+    55% { transform: translate(-40px, 40px); }
+    60% { transform: translate(45px, 45px); }
+    65% { transform: translate(-50px, 50px); }
+    70% { transform: translate(55px, 55px); }
+    85% { transform: translate(-55px, 50px); }
     100% { transform: translate(0, 0); }
+  } 
+
+  /*Responsivo */
+  
+  @media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .content__wrap {
+        margin-bottom: 0;
+    }
+
+    .error {
+        margin-bottom: 0;
+    }
   }
+
+  
